@@ -5,6 +5,7 @@
  */
 package br.com.bandtec.projetocontinuada1;
 
+import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.GroupLayout;
 
 /**
@@ -129,11 +130,11 @@ public class Tela1 extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btLeitura)
-                        .addGap(219, 219, 219))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(lbDadomemoria, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44))))
+                        .addGap(44, 44, 44))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btLeitura)
+                        .addGap(252, 252, 252))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +159,7 @@ public class Tela1 extends javax.swing.JFrame {
                         .addComponent(lbMemoria, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbMaxMem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE))
+                        .addContainerGap(108, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(47, 47, 47)
                         .addComponent(lbDadodisco)
@@ -168,9 +169,9 @@ public class Tela1 extends javax.swing.JFrame {
                         .addComponent(lbDadomemoria)
                         .addGap(18, 18, 18)
                         .addComponent(barMemoria, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)))
-                .addComponent(btLeitura, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                        .addGap(62, 62, 62)
+                        .addComponent(btLeitura, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -197,7 +198,7 @@ public class Tela1 extends javax.swing.JFrame {
     private void btLeituraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLeituraActionPerformed
        
         //CPU
-        Double cpu = Math.random()*2.31;
+        Double cpu = ThreadLocalRandom.current().nextDouble(0, 2.30);
         Integer cpu_inteiro = cpu.intValue();
         barCpu.setValue(cpu_inteiro);
         barCpu.setMaximum(2);
@@ -206,7 +207,7 @@ public class Tela1 extends javax.swing.JFrame {
         lbDadocpu.setText(cpuString);
         
         //Disco
-        Double disco = Math.random()*129.1;
+        Double disco = ThreadLocalRandom.current().nextDouble(0, 129);
         Integer disco_inteiro = disco.intValue();
         barDisco.setValue(disco_inteiro);
         barDisco.setMaximum(128);
@@ -215,7 +216,7 @@ public class Tela1 extends javax.swing.JFrame {
         lbDadodisco.setText(discoString);
         
         //Memória
-        Double memoria = Math.random()*8.1;
+        Double memoria = ThreadLocalRandom.current().nextDouble(0, 8);;
         Integer memoria_inteiro = memoria.intValue();
         barMemoria.setValue(memoria_inteiro);
         barMemoria.setMaximum(7);
